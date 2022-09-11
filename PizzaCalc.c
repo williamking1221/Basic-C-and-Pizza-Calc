@@ -19,34 +19,6 @@ float calc_ppd(float d, float cost){
     return area / cost;
 }
 
-/**
-struct Pizza* make_new(char* pizza_name, float pizza_per_dollar){
-    struct Pizza* new_pizza = (struct Pizza*) malloc(sizeof(struct Pizza));
-    new_pizza->name = pizza_name;
-    new_pizza->pizza_per_dollar = pizza_per_dollar;
-    new_pizza->next = NULL;
-    new_pizza->prior = NULL;
-    return new_pizza;
-}
-**
-
-//Inserting next to target_pizza
-void insert_next(struct Pizza* target_pizza, char* next_pizza_name, float pizza_per_dollar){
-    struct Pizza* new_pizza = make_new(next_pizza_name, pizza_per_dollar);
-    new_pizza->next = target_pizza->next;
-    new_pizza->prior = target_pizza;
-    target_pizza->next = new_pizza;
-}
-
-//Note: Use insert_before method if we want to insert to the start of linked list, else use insert_next. Insert before target_pizza
-struct Pizza* insert_before(struct Pizza* target_pizza, char* prev_pizza_name, float pizza_per_dollar){
-    struct Pizza* new_pizza = make_new(prev_pizza_name, pizza_per_dollar);
-    new_pizza->next = target_pizza;
-    target_pizza->prior = new_pizza;
-    new_pizza->prior = NULL;
-    return new_pizza;
-}
-**/
 void swap(struct Pizza* p1, struct Pizza* p2){
     char temp[64];
     float temp_ppd;
@@ -57,39 +29,6 @@ void swap(struct Pizza* p1, struct Pizza* p2){
     strcpy(p2->name, temp);
     p2->pizza_per_dollar = temp_ppd;
 }
-/**
-void bubble_sort(struct Pizza* head){
-    struct Pizza* ptr;
-    struct Pizza* temp;
-    ptr = head;
-    while(ptr->next != NULL){
-        if(ptr->next->pizza_per_dollar > ptr->pizza_per_dollar){
-            temp = ptr->next;
-            swap(ptr, temp);
-            ptr = ptr->prior;
-            if(ptr->prior != NULL){
-                ptr = ptr->prior;
-            }
-        }
-        else if(ptr->next->pizza_per_dollar == ptr->pizza_per_dollar){
-            if(strcmp(ptr->name, ptr->next->name) < 0){
-                temp = ptr->next;
-                swap(ptr, temp);
-                ptr = ptr->prior;
-                if(ptr->prior != NULL){
-                    ptr = ptr->prior;
-                }    
-            }
-            else{
-                ptr = ptr->next;
-            }
-        }
-        else{
-            ptr = ptr->next;
-        }
-    }
-}
-**/
 
 void bubble_sort(struct Pizza* head){
     struct Pizza* current = head;
